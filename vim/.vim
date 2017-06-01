@@ -1,0 +1,1 @@
+/home/klanvin/dotfiles/vim

@@ -46,3 +46,5 @@ PS1+="%{$fg_bold[blue]%}%~%f"
 
 # New line
 PS1+='%{$fg_bold[red]%}❯ %f%{$reset_color%}'
+
+. ~/.local/share/z.sh

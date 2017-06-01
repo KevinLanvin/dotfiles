@@ -8,6 +8,7 @@ set wildmenu
 set laststatus=2
 call plug#begin()
 
+Plug 'fatih/molokai'
 Plug 'https://github.com/vim-syntastic/syntastic.git'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
@@ -29,6 +30,11 @@ let g:NERDTreeChDirMode=2
 let g:NERDTreeDirArrows=0
 let g:NERDTreeShowBookmarks=1
 let g:NERDTreeShowHidden=1
+
+"Syntastic
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+
 
 " Moves between splits the easy way
 map <C-h> <C-w>h
@@ -54,6 +60,8 @@ nnoremap gH	:bprev<CR>
 " More natural splits
 set splitright
 set splitbelow
+
+colorscheme zenburn
 
 " Open NERTree if vim start with no file
 autocmd vimenter * if !argc() | let g:nerdtree_tabs_open_on_console_startup=1 | endif
