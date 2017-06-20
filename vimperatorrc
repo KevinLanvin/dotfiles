@@ -1,0 +1,6 @@
+nnoremap K :tabnext<Return>
+nnoremap J :tabprev<Return>
+
+set hintchars=hsdfgyuiopazertcvbn
+
+source! ~/.vimperatorrc.local
