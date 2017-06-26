@@ -41,6 +41,8 @@ let g:NERDTreeShowHidden=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 
+nnoremap ; :
+vnoremap ; :
 
 " Moves between splits the easy way
 map <C-h> <C-w>h
