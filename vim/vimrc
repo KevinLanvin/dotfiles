@@ -13,6 +13,8 @@ Plug 'https://github.com/vim-syntastic/syntastic.git'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'tpope/vim-surround'
+
 call plug#end()
 
 
