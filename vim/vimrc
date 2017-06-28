@@ -14,6 +14,8 @@ Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-surround'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-repeat'
 
 call plug#end()
 
@@ -38,6 +40,10 @@ let g:NERDTreeChDirMode=2
 let g:NERDTreeDirArrows=0
 let g:NERDTreeShowBookmarks=1
 let g:NERDTreeShowHidden=1
+
+"Options for delimitmate
+let delimitMate_expand_cr = 2
+let delimitMate_expand_space = 2
 
 "Syntastic
 let g:syntastic_error_symbol='✗'
