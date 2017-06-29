@@ -88,3 +88,6 @@ autocmd vimenter * if !argc() | let g:nerdtree_tabs_open_on_console_startup=1 | 
 
 highlight ExtraWhitespace term=reverse ctermbg=196
 au BufNewFile,BufRead * :match ExtraWhitespace /\s\+$/
+
+" Show tabs and end of lines
+:set listchars=tab:▸\ ,eol:¬,trail:·
