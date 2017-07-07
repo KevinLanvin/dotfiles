@@ -16,6 +16,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-repeat'
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
