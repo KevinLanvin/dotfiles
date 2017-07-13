@@ -9,3 +9,4 @@ xset r rate 200 44
 
 # set qwerty
 setxkbmap us
+setxkbmap -option compose:ralt
