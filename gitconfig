@@ -29,6 +29,7 @@ la = !git l --all
 rmtls = remote -v show
 brls = branch -vva --list
 
+current-branch = rev-parse --abbrev-ref HEAD
 pushbr = !git push --set-upstream origin `git current-branch`
 st = status
 ci = commit
@@ -37,3 +38,6 @@ co = checkout
 df = diff
 dc = diff --cached
 ls = ls-files
+
+[core]
+editor = vim

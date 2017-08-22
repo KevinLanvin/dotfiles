@@ -1,5 +1,6 @@
 set nocompatible
 inoremap jk <ESC>
+inoremap kj <ESC>
 let mapleader = "\<Space>"
 filetype plugin indent on
 syntax on
