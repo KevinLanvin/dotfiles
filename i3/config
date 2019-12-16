@@ -200,7 +200,7 @@ client.urgent #301010 #301010 #ffffff #ffaaaa
 
 # set borders
 default_border pixel 5
-hide_edge_borders vertical
+hide_edge_borders both
 
 # set keyboard rate
 exec --no-startup-id xset r rate 200 44
