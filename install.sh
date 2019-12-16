@@ -28,6 +28,11 @@ try_cmd sudo apt-get -y install git
 # i3
 echo "Installing i3"
 try_cmd sudo apt-get -y install i3
+try_cmd sudo apt-get -y install feh
+try_cmd cp ./images/wallpaper.jpg ~/Images/
+try_cmd sudo apt-get -y install dmenu
+try_cmd cp ./i3/config ~/.config/i3/
+try_cmd cp ./i3/i3status.conf /etc/
 
 # Copy config files
 echo "Copying dotfiles"
