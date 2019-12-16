@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -94,8 +95,8 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
+set $ws1 "Firefox"
+set $ws2 "Vim"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
@@ -168,21 +169,35 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 	colors {
-		background #150000
-		statusline #ffdddd
+		background #200000
+		statusline #ffffff
+		focused_workspace #ffaaaa #501010 #ffffff
+		active_workspace #aa8080 #200000 #808080
+		inactive_workspace #200000 #200000 #808080
+		urgent_workspace #aa8080 #200000 #ffffff
 	}
 }
 
 
 # custom app launcher
 bindsym $mod+Shift+f exec /usr/bin/firefox
+bindsym $mod+$alt+l exec i3lock -i ~/Images/wallpaper.png
 
 # focus doesnt follow the mouse
 focus_follows_mouse no
 
 # assign app to workspace
-assign [class="Firefox"] 1
-assign [class="vim"] 2
+assign [class="Firefox"] $ws1
+assign [class="vim"] $ws2
 
 #set background
 exec /usr/bin/feh --bg-center ~/Images/wallpaper.jpg
+
+#set colors
+client.focused #502020 #502020 #ffffff #ffaaaa
+client.unfocused #200000 #200000 #ffffff #ffaaaa
+client.urgent #301010 #301010 #ffffff #ffaaaa
+
+#set borders
+default_border pixel 5
+hide_edge_borders vertical
