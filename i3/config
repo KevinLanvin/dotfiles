@@ -190,14 +190,17 @@ focus_follows_mouse no
 assign [class="Firefox"] $ws1
 assign [class="vim"] $ws2
 
-#set background
+# set background
 exec /usr/bin/feh --bg-center ~/Images/wallpaper.jpg
 
-#set colors
+# set colors
 client.focused #502020 #502020 #ffffff #ffaaaa
 client.unfocused #200000 #200000 #ffffff #ffaaaa
 client.urgent #301010 #301010 #ffffff #ffaaaa
 
-#set borders
+# set borders
 default_border pixel 5
 hide_edge_borders vertical
+
+# set keyboard rate
+exec --no-startup-id xset r rate 200 44
