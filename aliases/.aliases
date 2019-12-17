@@ -12,10 +12,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-
-# Other git aliases in .gitconfig
-
-alias g='git'
+# Git aliases are locate in .gitconfig and in oh-my-zsh git plugin
 
 
 
