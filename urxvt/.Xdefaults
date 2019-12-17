@@ -39,6 +39,8 @@
 *.color7: #bfbaac
 *.color15: #fdf6e3
 
+URxvt.font: xft:MesloLGS NF:style=Regular:size=10
+URxvt.boldfont: xft:MesloLGS NF:style=Bold:size=10
 
 
 ## URxvt Appearance

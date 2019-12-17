@@ -26,6 +26,15 @@ install_packages() {
 	# URxvt
 	echo "Installing URxvt"
 	sudo apt-get -y install rxvt-unicode
+
+	#Zsh
+	echo "Installing Zsh"
+	sudo apt-get -y install zsh
+	sudo chsh -s /bin/zsh root
+	sudo chsh -s /bin/zsh `id -u -n`
+	sudo apt-get -y install curl
+	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 }
 
 stow_all(){
