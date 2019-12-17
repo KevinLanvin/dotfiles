@@ -22,6 +22,10 @@ install_packages() {
 	sudo apt-get -y install i3
 	sudo apt-get -y install feh
 	sudo apt-get -y install dmenu
+
+	# URxvt
+	echo "Installing URxvt"
+	sudo apt-get -y install rxvt-unicode
 }
 
 stow_all(){
