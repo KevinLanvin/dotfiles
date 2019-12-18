@@ -4,6 +4,11 @@ set nocompatible
 let mapleader = "\<Space>"
 
 filetype plugin indent on
+set smartindent
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 syntax on
 set encoding=utf-8
 
