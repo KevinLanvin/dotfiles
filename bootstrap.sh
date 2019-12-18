@@ -40,6 +40,13 @@ install_packages() {
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 	git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 	sudo git clone git@github.com:rupa/z.git /usr/bin/z
+
+	# Vim
+	echo "Installing Vim"
+	sudo apt-get -y install vim
+	update-alternatives --set editor /usr/bin/vim.basic
+	# Vim plugin
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
 stow_all(){
