@@ -33,10 +33,15 @@ call plug#end()
 
 " Mapping "
 "Move between splits"
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+"Resize splits"
+nmap <S-h> <C-w>>
+nmap <S-j> <C-w>+
+nmap <S-k> <C-w>-
+nmap <S-l> <C-w><
 
 "Normal mode"
 nmap <leader>n :NERDTreeTabsToggle<CR>

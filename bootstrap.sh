@@ -17,11 +17,12 @@ install_packages() {
 	echo "Installing git"
 	sudo apt-get -y install git
 
-	# i3
-	echo "Installing i3"
-	sudo apt-get -y install i3
-	sudo apt-get -y install feh
-	sudo apt-get -y install dmenu
+	# awesome
+	echo "Installing awesome"
+	sudo apt-get -y install awesome
+	sudo apt-get -y install awesome-extra
+	# check /etc/X11/xorg.conf to enable xcompgr
+	sudo apt-get -y install xcompmgr
 
 	# URxvt
 	echo "Installing URxvt"
