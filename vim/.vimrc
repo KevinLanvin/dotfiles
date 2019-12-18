@@ -39,10 +39,8 @@ map <C-l> <C-w>l
 nmap <leader>n :NERDTreeTabsToggle<CR>
 nnoremap ; :
 "Move between tabs"
-nnoremap gl	:tabnext<CR>
-nnoremap gh	:tabprev<CR>
-nnoremap gL	:bnext<CR>
-nnoremap gH	:bprev<CR>
+map <leader>l :tabnext<CR>
+map <leader>h :tabprev<CR>
 
 "Insert mode"
 inoremap jk <ESC>
@@ -64,6 +62,9 @@ let g:NERDTreeDirArrows=0
 let g:NERDTreeShowBookmarks=1
 let g:NERDTreeShowHidden=1
 autocmd vimenter * if !argc() | let g:nerdtree_tabs_open_on_console_startup=1 | endif
+nmap <F6> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "DelimiMate options"
 let delimitMade_expand_cr = 2
