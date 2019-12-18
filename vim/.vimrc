@@ -10,6 +10,8 @@ set encoding=utf-8
 set wildmenu
 set wildmode=longest:full,full
 set laststatus=2
+set nu
+highlight LineNr ctermfg=DarkGrey
 
 set splitright
 set splitbelow
@@ -26,6 +28,7 @@ Plug 'tpope/vim-repeat'
 Plug 'Raimondi/delimitMate'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'vim-scripts/vim-gitgutter'
 call plug#end()
 
 " Mapping "
@@ -73,3 +76,18 @@ let delimitMate_expand_space = 2
 "Syntastic options"
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+
+"Gitgutter options"
+let g:gitgutter_enabled=1
+let g:gitgutter_override_sign_column_highlight = 0
+highlight clear SignColumn
+set signcolumn=yes
+let g:gitgutter_highlight_lines=1
+highlight GitGutterAdd ctermfg=darkgreen ctermbg=Black
+highlight GitGutterChange ctermfg=yellow ctermbg=Black
+highlight GitGutterChangeDelete ctermfg=yellow ctermbg=Black
+highlight GitGutterDelete ctermfg=red ctermbg=Black
+highlight GitGutterAddLine ctermbg=Black
+highlight GitGutterChangeLine ctermbg=Black
+highlight GitGutterDeleteLine ctermbg=Black
+highlight GitGutterChangeDeleteLine ctermbg=Black
