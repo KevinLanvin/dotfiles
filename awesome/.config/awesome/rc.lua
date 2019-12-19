@@ -100,10 +100,10 @@ local scrlocker    = "slock"
 awful.util.terminal = terminal
 awful.util.tagnames = { "Firefox", "Vim", "Terminal", "Chat", "Music", "Steam", "Autres" }
 awful.layout.layouts = {
-    awful.layout.suit.floating,
+    -- awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
@@ -690,7 +690,7 @@ awful.rules.rules = {
 
     -- Titlebars
     { rule_any = { type = { "dialog", "normal" } },
-      properties = { titlebars_enabled = true } },
+      properties = { titlebars_enabled = false } },
 
     -- Set Firefox to always map on the first tag on screen 1.
     { rule = { class = "Firefox" },
