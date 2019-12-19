@@ -51,8 +51,8 @@ nmap <S-l> <C-w>>
 nmap <leader>n :NERDTreeTabsToggle<CR>
 nnoremap ; :
 "Move between tabs"
-map <leader>l :tabnext<CR>
-map <leader>h :tabprev<CR>
+map <leader-l> :tabnext<CR>
+map <leader-h> :tabprev<CR>
 
 "Insert mode"
 inoremap jk <ESC>
