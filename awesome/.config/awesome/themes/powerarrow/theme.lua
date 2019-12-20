@@ -282,6 +282,20 @@ function theme.at_screen_connect(s)
         self:get_children_by_id('index_role')[1].markup = index .. ":"
         self:get_children_by_id('tag_label')[1].markup = tag_names[index]
         self.bg = tag_colors[index]
+        self.shape_border_color = "#f43753"
+
+        if c3.selected then
+          self.shape_border_width = 1
+        else
+          self.shape_border_width = 0
+        end
+      end,
+      update_callback = function(self, c3, index, objects) --luacheck: no unused args
+        if c3.selected then
+          self.shape_border_width = 1
+        else
+          self.shape_border_width = 0
+        end
       end,
     },
   }
