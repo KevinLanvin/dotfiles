@@ -1,6 +1,6 @@
 ##### URxvt configuration #####
 
-## Colors, CHANGE LATER
+## Colors
 
 # special/
 *.foreground: #eeeeee
@@ -38,8 +38,8 @@
 *.color7: #aaaaaa
 *.color15: #ffffff
 
-URxvt.font: xft:MesloLGS NF:style=Regular:size=10
-URxvt.boldfont: xft:MesloLGS NF:style=Bold:size=10
+URxvt.font: xft:MesloLGS NF:style=Regular:size=11
+URxvt.boldfont: xft:MesloLGS NF:style=Bold:size=11
 
 
 ## URxvt Appearance
