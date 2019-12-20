@@ -17,7 +17,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
-theme.font                                      = "MesloLGS NF 9"
+theme.font                                      = "MesloLGS NF 10"
 theme.fg_normal                                 = "#eeeeee"
 theme.fg_focus                                  = "#73cef4"
 theme.fg_urgent                                 = "#f43753"
@@ -117,7 +117,7 @@ task:buttons(my_table.join(awful.button({}, 1, lain.widget.contrib.task.prompt))
 local memicon = wibox.widget.imagebox(theme.widget_mem)
 local mem = lain.widget.mem({
   settings = function()
-    widget:set_markup(markup.fontfg(theme.font, theme.bg_focus, mem_now.used .. "Mb "))
+    widget:set_markup(markup.fontfg(theme.font, theme.bg_focus, mem_now.used .. "Mb"))
   end
 })
 
@@ -126,14 +126,14 @@ local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
 local cpu = lain.widget.cpu({
   settings = function()
     local cpup = string.format("%2.0f", cpu_now.usage)
-    widget:set_markup(markup.fontfg(theme.font, theme.bg_focus, cpup .. "% "))
+    widget:set_markup(markup.fontfg(theme.font, theme.bg_focus, cpup .. "%"))
   end
 })
 
 -- Coretemp (lain, average)
 local temp = lain.widget.temp({
   settings = function()
-    widget:set_markup(markup.fontfg(theme.fontfg, theme.bg_focus, coretemp_now .. "°C "))
+    widget:set_markup(markup.fontfg(theme.fontfg, theme.bg_focus, coretemp_now .. "°C"))
   end
 })
 --]]
@@ -143,7 +143,7 @@ local tempicon = wibox.widget.imagebox(theme.widget_temp)
 local fsicon = wibox.widget.imagebox(theme.widget_hdd)
 theme.fs = lain.widget.fs({
   settings = function()
-    local fsp = string.format("%3.0f%s ", fs_now["/home"].free, fs_now["/home"].units)
+    local fsp = string.format("%3.0f%s", fs_now["/home"].free, fs_now["/home"].units)
     widget:set_markup(markup.fontfg(theme.font, theme.bg_focus, fsp))
   end
 })
@@ -153,7 +153,7 @@ theme.fs = lain.widget.fs({
 local neticon = wibox.widget.imagebox(theme.widget_net)
 local net = lain.widget.net({
   settings = function()
-    local netp = string.format("%4.0fMb ↓↑ %4.0fMb ", net_now.received, net_now.sent)
+    local netp = string.format("%4.0fMb ↓↑ %4.0fMb", net_now.received, net_now.sent)
     widget:set_markup(markup.fontfg(theme.font, theme.bg_focus, netp))
   end
 })
@@ -222,25 +222,35 @@ function theme.at_screen_connect(s)
   awful.button({}, 5, function () awful.layout.inc(-1) end)))
 
 
-  tag_colors = {
-    "#282828",
-    "#f43753",
-    "#c9d05c",
-    "#ffc24b",
-    "#b3deef",
+  local tag_colors = {
+    "#aaaaaa",
     "#d3b987",
-    "#73cef4"
+    "#73cef4",
+    "#b3deef",
+    "#ffc24b",
+    "#c9d05c",
+    "#f43753",
+  }
+  local tag_names = {
+    "Web ",
+    "Vim ",
+    "Term ",
+    "Chat ",
+    "Music ",
+    "Steam ",
+    "Autre "
   }
 
   -- Create a taglist widget
   s.mytaglist = awful.widget.taglist{
     screen = s,
     filter = awful.widget.taglist.filter.all,
+    fg = "#282828",
     style = {
       shape = gears.shape.powerline,
     },
     layout   = {
-      spacing = -8,
+      spacing = -12,
       layout  = wibox.layout.fixed.horizontal
     },
     buttons = taglist_buttons,
@@ -248,8 +258,8 @@ function theme.at_screen_connect(s)
       shape = gears.shape.powerline,
       widget = wibox.container.background,
       {
-        left  = 10,
-        right = 15,
+        left  = 15,
+        right = 10,
         widget = wibox.container.margin,
         {
           layout = wibox.layout.fixed.horizontal,
@@ -262,57 +272,56 @@ function theme.at_screen_connect(s)
             widget = wibox.widget.textbox,
           },
           {
-            id     = 'text_role',
+            id     = 'tag_label',
             widget = wibox.widget.textbox,
           },
         },
       },
-      -- Add support for hover colors and an index label
+      -- Add support for colors and an index label
       create_callback = function(self, c3, index, objects) --luacheck: no unused args
         self:get_children_by_id('index_role')[1].markup = index .. ":"
-        self:get_children_by_id('text_role')[1].fg = "#282828"
+        self:get_children_by_id('tag_label')[1].markup = tag_names[index]
         self.bg = tag_colors[index]
       end,
-      },
+    },
   }
 
   -- Create a tasklist widget
-  s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
+  s.mytasklist = awful.widget.tasklist{screen = s , filter = awful.widget.tasklist.filter.currenttags, buttons = awful.util.tasklist_buttons }
 
   -- Create the wibox
-  s.mywibox = awful.wibar({ position = "bottom", screen = s, height = dpi(16), bg = "none", fg = theme.fg_normal })
 
-  -- Add widgets to the wibox
-  s.mywibox:setup {
+  local my_wibar = wibox.widget {
+    wibox.widget { -- Left widgets
     layout = wibox.layout.align.horizontal,
-    expand = "none",
-    { -- Left widgets
-    layout = wibox.layout.fixed.horizontal,
-    --spr,
+    wibox.container.margin(arrow_r("#aaaaaa","#aaaaaa"),0,-15),
     s.mytaglist,
-    arrow_r("#282828","alpha"),
     s.mypromptbox,
   },
-  s.mytasklist, -- Middle widget
-  { -- Right widgets
+  s.mytasklist, -- Middle widgets 
+  wibox.widget { -- Right widgets
   layout = wibox.layout.fixed.horizontal,
   wibox.widget.systray(),
   arrow("alpha", "#f43753"),
-  wibox.container.background(wibox.container.margin(wibox.widget { nil, net.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(2)),"#f43753"),
+  wibox.container.background(wibox.container.margin(wibox.widget { net.widget, layout = wibox.layout.fixed.horizontal }, dpi(2), dpi(6)),"#f43753"),
   arrow("#f43753", "#c9d05c"),
-  wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(2)),"#c9d05c"),
+  wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.fixed.horizontal }, dpi(2), dpi(6)),"#c9d05c"),
   arrow("#c9d05c", "#ffc24b"),
-  wibox.container.background(wibox.container.margin(wibox.widget { tempicon, temp.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(2)),"#ffc24b"),
+  wibox.container.background(wibox.container.margin(wibox.widget { tempicon, temp.widget, layout = wibox.layout.fixed.horizontal }, dpi(2), dpi(6)),"#ffc24b"),
   arrow("#ffc24b", "#b3deef"),
-  wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(2)),"#b3deef"),
+  wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.fixed.horizontal }, dpi(2), dpi(6)),"#b3deef"),
   arrow("#b3deef", "#73cef4"),
-  wibox.container.background(wibox.container.margin(wibox.widget { fsicon, theme.fs and theme.fs.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(2)),"#73cef4"),
-  arrow("#73cef4", theme.bg_focus),
-  wibox.container.background(wibox.container.margin(wibox.widget { nil, mytextclock, layout = wibox.layout.align.horizontal }, dpi(2), dpi(2)), "#282828"),
+  wibox.container.background(wibox.container.margin(wibox.widget { fsicon, theme.fs and theme.fs.widget, layout = wibox.layout.fixed.horizontal }, dpi(2), dpi(6)),"#73cef4"),
+  arrow("#73cef4", "#aaaaaa"),
+  wibox.container.background(wibox.container.margin(wibox.widget { mytextclock, layout = wibox.layout.fixed.horizontal }, dpi(2), dpi(6)), "#aaaaaa"),
   --]]
-  wibox.container.background(s.mylayoutbox, "#282828"),
+  wibox.container.background(s.mylayoutbox, "#aaaaaa"),
 },
+layout = wibox.layout.align.horizontal,
+expand = "none"
 }
-    end
 
-    return theme
+  s.mywibox = awful.wibar({ widget = my_wibar, position = "bottom", screen = s, height = dpi(24), bg = "none", fg = "#282828" })
+end
+
+return theme
