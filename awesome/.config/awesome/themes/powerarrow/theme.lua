@@ -285,16 +285,20 @@ function theme.at_screen_connect(s)
         self.shape_border_color = "#f43753"
 
         if c3.selected then
-          self.shape_border_width = 1
+          self.opacity = 1
         else
-          self.shape_border_width = 0
+          self.opacity = 0.6
         end
       end,
       update_callback = function(self, c3, index, objects) --luacheck: no unused args
         if c3.selected then
-          self.shape_border_width = 1
+          self.opacity = 1
+          -- Hack to force redraw, doesnt affect the widget
+          self.shape_clip = false
         else
-          self.shape_border_width = 0
+          self.opacity = 0.6
+          -- Hack to force redraw, doesnt affect the widget
+          self.shape_clip = true
         end
       end,
     },
@@ -308,7 +312,7 @@ function theme.at_screen_connect(s)
   local my_wibar = wibox.widget {
     wibox.widget { -- Left widgets
     layout = wibox.layout.align.horizontal,
-    wibox.container.margin(arrow_r("#aaaaaa","#aaaaaa"),0,-15),
+    wibox.container.margin(arrow_r("alpha","alpha"),0,-15),
     s.mytaglist,
     s.mypromptbox,
   },
