@@ -1,6 +1,6 @@
 #! /bin/sh
 
 # set qwerty
-setxkbmap us -variant alt-intl
+setxkbmap us intl
 setxkbmap -option compose:ralt
 exec awesome
