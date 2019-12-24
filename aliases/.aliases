@@ -1,16 +1,14 @@
 # Common
-
 alias ll='ls -al --color'
 alias shutdown='systemctl poweroff'
 alias reboot='systemctl reboot'
 
-
 # Navigation
-
 alias home='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias cls='cls(){cd $1;ls;};cls'
 
 # Git aliases are locate in .gitconfig and in oh-my-zsh git plugin
 
