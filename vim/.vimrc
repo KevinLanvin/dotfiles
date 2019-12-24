@@ -25,10 +25,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/vim-syntastic/syntastic.git'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
 Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-repeat'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jacoborus/tender.vim'
 Plug 'vim-airline/vim-airline'
@@ -92,3 +91,4 @@ colorscheme tender
 let g:airline_theme = 'tender'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
+hi VertSplit guifg=#aaaaaa ctermfg=245 guibg=#282828 ctermbg=235 gui=NONE cterm=NONE
