@@ -25,6 +25,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/vim-syntastic/syntastic.git'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-repeat'
