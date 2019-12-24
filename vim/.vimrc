@@ -61,11 +61,6 @@ inoremap kj <ESC>
 "Visual mode"
 vnoremap ; :
 
-"Highlighting trailing spaces"
-highlight ExtraWhitespace term=reverse ctermbg=196
-au BufNewFile,BufRead * :match ExtraWhitespace /\s\+$/
-:set listchars=tab:▸\ ,eol:¬,trail:·
-
 "NERDTree options"
 let g:NERDChristmasTree=1
 let g:NERDTressAutoDeleteBuffer=1
@@ -93,3 +88,8 @@ let g:airline_theme = 'tender'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 hi VertSplit guifg=#aaaaaa ctermfg=245 guibg=#282828 ctermbg=235 gui=NONE cterm=NONE
+"Highlighting trailing spaces"
+highlight ExtraWhitespace term=reverse ctermbg=196
+au BufNewFile,BufRead * :match ExtraWhitespace /\s\+$/
+:set listchars=tab:▸\ ,eol:¬,trail:·
+

@@ -109,7 +109,8 @@ mytextclock.font = theme.font
 local task = wibox.widget.imagebox(theme.widget_task)
 lain.widget.contrib.task.attach(task, {
   -- do not colorize output
-  show_cmd = "task | sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g'"
+  -- show_cmd = "task | sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g'",
+  show_cmd = 'task rc.verbose:nothing'
 })
 task:buttons(my_table.join(awful.button({}, 1, lain.widget.contrib.task.prompt)))
 
@@ -287,7 +288,7 @@ function theme.at_screen_connect(s)
         if c3.selected then
           self.opacity = 1
         else
-          self.opacity = 0.6
+          self.opacity = 0.5
         end
       end,
       update_callback = function(self, c3, index, objects) --luacheck: no unused args
@@ -296,7 +297,7 @@ function theme.at_screen_connect(s)
           -- Hack to force redraw, doesnt affect the widget
           self.shape_clip = false
         else
-          self.opacity = 0.6
+          self.opacity = 0.5
           -- Hack to force redraw, doesnt affect the widget
           self.shape_clip = true
         end
@@ -305,10 +306,11 @@ function theme.at_screen_connect(s)
   }
 
   -- Create a tasklist widget
-  s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags,
-                                            tasklist_buttons, nil,
-                                            list_update,
-                                            wibox.layout.flex.horizontal())
+  s.mytasklist = awful.widget.tasklist{
+    screen = s , 
+    filter = awful.widget.tasklist.filter.currenttags, 
+    buttons = awful.util.tasklist_buttons,
+  }
 
   -- Create the wibox
 
