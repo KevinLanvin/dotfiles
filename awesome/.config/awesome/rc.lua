@@ -388,8 +388,6 @@ globalkeys = my_table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey, "Control" }, "f", function () awful.spawn(browser) end,
-              {description = "open web browser", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
@@ -522,6 +520,8 @@ globalkeys = my_table.join(
     -- User programs
     awful.key({ modkey }, "q", function () awful.spawn(browser) end,
               {description = "run browser", group = "launcher"}),
+    awful.key({ modkey, "Control" }, "f", function () awful.spawn(browser) end,
+              {description = "open web browser", group = "launcher"}),
     awful.key({ modkey }, "a", function () awful.spawn(guieditor) end,
               {description = "run gui editor", group = "launcher"}),
 
@@ -767,6 +767,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- possible workaround for tag preservation when switching back to default screen:
 -- https://github.com/lcpz/awesome-copycats/issues/251
 -- }}}
+
+beautiful.notification_max_width = 450
+beautiful.notification_max_height = 150
 
 os.execute("xset r rate 200 44 &")
 os.execute("xcompmgr &")

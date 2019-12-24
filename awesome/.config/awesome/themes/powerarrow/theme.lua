@@ -307,9 +307,41 @@ function theme.at_screen_connect(s)
 
   -- Create a tasklist widget
   s.mytasklist = awful.widget.tasklist{
-    screen = s , 
-    filter = awful.widget.tasklist.filter.currenttags, 
+    screen = s ,
+    filter = awful.widget.tasklist.filter.currenttags,
     buttons = awful.util.tasklist_buttons,
+    layout = { layout = wibox.layout.flex.horizontal },
+    widget_template = {
+      id = 'background_role',
+      fg = '#aaaaaa',
+      widget = wibox.container.background,
+      {
+        left = 5,
+        right = 5,
+        widget = wibox.container.margin,
+        {
+          layout = wibox.layout.fixed.horizontal,
+          {
+            right = 5,
+            left = 2,
+            top = 2,
+            bottom = 2,
+            widget = wibox.container.margin,
+            {
+              id = 'icon_role',
+              widget = wibox.widget.imagebox,
+            }
+          },
+          {
+            id = 'task_label',
+            widget= wibox.widget.textbox,
+          }
+        }
+      },
+      create_callback = function(self, c3, index, objects)
+        self:get_children_by_id('task_label')[1].text = c3.name
+      end
+    }
   }
 
   -- Create the wibox
@@ -321,7 +353,7 @@ function theme.at_screen_connect(s)
     s.mytaglist,
     s.mypromptbox,
   },
-  s.mytasklist, -- Middle widgets 
+  s.mytasklist, -- Middle widgets
   wibox.widget { -- Right widgets
   layout = wibox.layout.fixed.horizontal,
   wibox.widget.systray(),
