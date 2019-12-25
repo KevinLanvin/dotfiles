@@ -101,6 +101,12 @@ theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/
 local markup = lain.util.markup
 local separators = lain.util.separators
 
+-- ALSA volume
+theme.volume = lain.widget.alsabar({
+    --togglechannel = "IEC958,3",
+    notification_preset = { font = "MesloLGS NF 10", fg = theme.fg_normal },
+})
+
 -- Text Clock
 local mytextclock = wibox.widget.textclock("%H:%M", 60)
 mytextclock.font = theme.font
