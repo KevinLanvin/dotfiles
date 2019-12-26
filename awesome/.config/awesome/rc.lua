@@ -95,7 +95,7 @@ local cycle_prev   = true -- cycle trough all previous client or just the first 
 local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = os.getenv("GUI_EDITOR") or "gvim"
 local browser      = os.getenv("BROWSER") or "firefox"
-local scrlocker    = "slock"
+local scrlocker    = "i3lock -c 000000"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "Firefox", "Vim", "Terminal", "Chat", "Music", "Steam", "Autres" }
@@ -771,5 +771,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.notification_max_width = 450
 beautiful.notification_max_height = 150
 
+os.execute("setxkbmap us intl")
 os.execute("xset r rate 200 44 &")
 os.execute("xcompmgr &")
