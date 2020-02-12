@@ -16,6 +16,7 @@ set wildmode=longest:full,full
 set laststatus=2
 set nu
 highlight LineNr ctermfg=DarkGrey
+set foldmethod=indent
 
 set splitright
 set splitbelow
@@ -29,10 +30,12 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-repeat'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jacoborus/tender.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/vim-gitgutter'
+Plug 'Yggdroot/indentLine'
+Plug 'mattn/emmet-vim'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 " Mapping "
@@ -88,8 +91,8 @@ let g:airline_theme = 'tender'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 hi VertSplit guifg=#aaaaaa ctermfg=245 guibg=#282828 ctermbg=235 gui=NONE cterm=NONE
+highlight Visual ctermbg=0 cterm=reverse gui=none
 "Highlighting trailing spaces"
 highlight ExtraWhitespace term=reverse ctermbg=196
 au BufNewFile,BufRead * :match ExtraWhitespace /\s\+$/
 :set listchars=tab:▸\ ,eol:¬,trail:·
-
