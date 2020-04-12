@@ -36,6 +36,7 @@ Plug 'vim-scripts/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
+Plug 'leafoftree/vim-vue-plugin'
 call plug#end()
 
 " Mapping "
@@ -90,9 +91,10 @@ colorscheme tender
 let g:airline_theme = 'tender'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
+let g:vim_vue_plugin_use_sass = 1
 hi VertSplit guifg=#aaaaaa ctermfg=245 guibg=#282828 ctermbg=235 gui=NONE cterm=NONE
 highlight Visual ctermbg=0 cterm=reverse gui=none
 "Highlighting trailing spaces"
 highlight ExtraWhitespace term=reverse ctermbg=196
 au BufNewFile,BufRead * :match ExtraWhitespace /\s\+$/
-:set listchars=tab:▸\ ,eol:¬,trail:·
+set listchars=tab:▸\ ,eol:¬,trail:·
