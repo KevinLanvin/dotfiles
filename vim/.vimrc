@@ -23,7 +23,7 @@ set splitbelow
 
 " Plugins "
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/vim-syntastic/syntastic.git'
+Plug 'w0rp/ale'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -37,6 +37,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 Plug 'leafoftree/vim-vue-plugin'
+Plug 'mgechev/vim-jsx'
 call plug#end()
 
 " Mapping "
@@ -80,10 +81,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "DelimiMate options"
 let delimitMade_expand_cr = 2
 let delimitMate_expand_space = 2
-
-"Syntastic options"
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
 
 "Theme"
 syntax enable
