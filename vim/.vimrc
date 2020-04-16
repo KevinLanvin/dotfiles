@@ -37,7 +37,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 Plug 'leafoftree/vim-vue-plugin'
-Plug 'mgechev/vim-jsx'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 " Mapping "
@@ -79,7 +81,7 @@ nmap <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "DelimiMate options"
-let delimitMade_expand_cr = 2
+let delimitMate_expand_cr = 2
 let delimitMate_expand_space = 2
 
 "Theme"
