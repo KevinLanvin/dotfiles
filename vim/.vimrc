@@ -43,6 +43,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 " Mapping "
+vmap <C-c> "*y
 "Move between splits"
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
