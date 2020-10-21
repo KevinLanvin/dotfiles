@@ -1,5 +1,0 @@
-nmap ; :
-nnoremap K :tabnext<Return>
-nnoremap J :tabprev<Return>
-
-source! ~/.vimperatorrc.local
