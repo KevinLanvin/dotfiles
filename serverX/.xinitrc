@@ -1,8 +1,7 @@
 #! /bin/bash
 
-# set qwerty
-setxkbmap us -variant alt-intl
-setxkbmap -option compose:ralt
+# set azerty
+setxkbmap fr
 
 # use i3
 exec i3 --force-xinerama
