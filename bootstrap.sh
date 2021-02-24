@@ -17,12 +17,14 @@ install_packages() {
 	echo "Installing git"
 	sudo apt-get -y install git
 
+	/*
 	# awesome
 	echo "Installing awesome"
 	sudo apt-get -y install awesome
 	sudo apt-get -y install awesome-extra
 	# check /etc/X11/xorg.conf to enable xcompgr
 	sudo apt-get -y install xcompmgr
+	*/
 
 	# URxvt
 	echo "Installing URxvt"
