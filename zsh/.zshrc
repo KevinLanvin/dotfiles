@@ -23,7 +23,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Uncomment the following line to use case-sensitive completion.
+  # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
@@ -123,3 +123,4 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
 
 # Created by `userpath` on 2020-02-10 12:16:03
 export PATH="$PATH:/home/kiwin/.local/bin"
+

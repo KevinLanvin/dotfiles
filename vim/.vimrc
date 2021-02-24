@@ -36,10 +36,11 @@ Plug 'vim-scripts/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
-Plug 'leafoftree/vim-vue-plugin'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'jonsmithers/vim-html-template-literals'
+" Plug 'leafoftree/vim-vue-plugin'
+" Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 " Mapping "
@@ -57,7 +58,6 @@ nmap <S-l> <C-w>>
 
 "Normal mode"
 nmap <leader>n :NERDTreeTabsToggle<CR>
-nnoremap ; :
 "Move between tabs"
 map <leader>l :tabnext<CR>
 map <leader>h :tabprev<CR>
@@ -65,9 +65,6 @@ map <leader>h :tabprev<CR>
 "Insert mode"
 inoremap jk <ESC>
 inoremap kj <ESC>
-
-"Visual mode"
-vnoremap ; :
 
 "NERDTree options"
 let g:NERDChristmasTree=1
@@ -81,7 +78,7 @@ nmap <F6> :NERDTreeToggle<CR>
 nmap <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-"DelimiMate options"
+"DelimitMate options"
 let delimitMate_expand_cr = 2
 let delimitMate_expand_space = 2
 
